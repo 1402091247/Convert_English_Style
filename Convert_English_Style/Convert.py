@@ -21,15 +21,26 @@ client = OpenAI(
     # sk-xxx替换为自己的key
     api_key='sk-RjDt8IuNCTsOZPvLHwErGBygww3MIjHNz7oArnzCKwiSlYA9'
 )
-def convert(input,degree):
+def convert(input,degree, profession):
     # input = 'we want to go to supermarket next weekend'
-    completion = client.chat.completions.create(
-      model="gpt-3.5-turbo",
-      messages=[
-        {"role": "system", "content": "You are an English expert."},
-        {"role": "user", "content": "{}{}".format(data[index.index(degree)], input)}
-      ]
-    )
+
+    #Insert medical jargon into the sentences below,,,Add terms from the {} field
+    if profession =="None":
+        completion = client.chat.completions.create(
+          model="gpt-3.5-turbo",
+          messages=[
+            {"role": "system", "content": "You are an English expert."},
+            {"role": "user", "content": "{}{}".format(data[index.index(degree)], input)}
+          ]
+        )
+    else:
+        completion = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are an English expert."},
+                {"role": "user", "content": "Insert {} jargon into the sentences below，and {}{}".format(profession,data[index.index(degree)], input)}
+            ]
+        )
     # completion.choices[0].message
     # print(completion.choices[0].message.content)
     return completion.choices[0].message.content
