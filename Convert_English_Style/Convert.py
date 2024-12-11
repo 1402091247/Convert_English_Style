@@ -7,9 +7,10 @@ data = ["Enhance the formality of the following sentences to a lesser extent:",
         "Rewrite the sentence to sound more casual and informal, with a slight sense of friendliness:",
         "Enhance the sociability of the following sentence to make it more engaging and approachable without losing its original meaning:",
         "Rewrite the sentences below to make them sound exceptionally friendly and engaging, maximizing sociability:",
-        "Revise the sentences below by breaking them down into simpler sentences with minimal complexity:",
-        "Break down the sentences provided into shorter, more concise sentences without altering the original meaning too much. Aim to maintain clarity and improve readability by dividing the sentences into smaller units:",
-        "Restructure the given text by breaking down complex sentences into simpler and more concise sentences. Aim to enhance clarity and readability by dividing the content into smaller units while maintaining the original meaning:"
+        "Revise the sentences below by breaking them down into simpler sentences with minimal complexity, and separate with multiple bullets,no more than 80 words:",
+        "Break down the sentences provided into shorter, more concise sentences without altering the original meaning too much. Aim to maintain clarity and improve readability by dividing the sentences into smaller units, and separate with multiple bullets,no more than 60 words:",
+        # "Restructure the given text by breaking down complex sentences into simpler and more concise sentences. Aim to enhance clarity and readability by dividing the content into smaller units while maintaining the original meaning,no more than 30 words, and separate with multiple bullets:"
+        "Summarize the following sentences in 30 words or less, and separate with multiple bullets:"
         ]
 
 index = ["Professional_Low","Professional_Medium","Professional_High",
