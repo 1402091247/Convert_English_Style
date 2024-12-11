@@ -26,11 +26,16 @@ def main():
     src_lang_col, multi_select, tgt_lang_col , swap_btn_col= st.columns((2, 2, 2, 1))
     with src_lang_col:
         style = st.selectbox('Make your text:', ['Professional', 'Sociable', 'Summary'], key='style')
+    if style == 'Professional':
 
-    with multi_select:
-        profession_list = st.selectbox('Select profession:', ['None','Energy',' Materials', 'Industrials', 'Consumer Discretionary',
-                                                      'Consumer Staples', 'Health Care','Financials', 'Information Technology',
-                                                      'Communication Services', 'Real Estate'], key='lang')
+        with multi_select:
+            profession_list = st.selectbox('Select profession:', ['None','Energy',' Materials', 'Industrials', 'Consumer Discretionary',
+                                                          'Consumer Staples', 'Health Care','Financials', 'Information Technology',
+                                                          'Communication Services', 'Real Estate'], key='lang')
+    else:
+        with multi_select:
+            profession_list = st.selectbox('Select profession:',
+                                           ['None'], key='lang')
     with tgt_lang_col:
         degree = st.select_slider('Degree of Conversion', ["Low", "Medium", "High"], key='speed')
     with swap_btn_col:
