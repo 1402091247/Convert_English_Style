@@ -20,24 +20,23 @@ def load_css(stem: str):
 
 def main():
     load_css("convert")
-    st.markdown("## ✨ English Style Converter")
-    text_to_speech = st.text_area('📖 Enter text to convert:')
+    st.markdown("## ✨ 中文生成器v1.0")
+    text_to_speech = st.text_area('📖 输入内容:')
     out = ''
     src_lang_col, multi_select, tgt_lang_col , swap_btn_col= st.columns((2, 2, 2, 1))
-    with src_lang_col:
-        style = st.selectbox('Make your text:', ['Professional', 'Sociable', 'Summary'], key='style')
-    if style == 'Professional':
-
-        with multi_select:
-            profession_list = st.selectbox('Select profession:', ['None','Energy',' Materials', 'Industrials', 'Consumer Discretionary',
-                                                          'Consumer Staples', 'Health Care','Financials', 'Information Technology',
-                                                          'Communication Services', 'Real Estate'], key='lang')
-    else:
-        with multi_select:
-            profession_list = st.selectbox('Select profession:',
-                                           ['None'], key='lang')
-    with tgt_lang_col:
-        degree = st.select_slider('Degree of Conversion', ["Low", "Medium", "High"], key='speed')
+    # with src_lang_col:
+    #     style = st.selectbox('Make your text:', ['Professional', 'Sociable', 'Summary'], key='style')
+    # if style == 'Professional':
+    #     with multi_select:
+    #         profession_list = st.selectbox('Select profession:', ['None','Energy',' Materials', 'Industrials', 'Consumer Discretionary',
+    #                                                       'Consumer Staples', 'Health Care','Financials', 'Information Technology',
+    #                                                       'Communication Services', 'Real Estate'], key='lang')
+    # else:
+    #     with multi_select:
+    #         profession_list = st.selectbox('Select profession:',
+    #                                        ['None'], key='lang')
+    # with tgt_lang_col:
+    #     degree = st.select_slider('Degree of Conversion', ["Low", "Medium", "High"], key='speed')
     with swap_btn_col:
         # bt1 = st.markdown('<button class="custom-button" onclick = "alert(点击)">Convert</button>', unsafe_allow_html=True)
         st.markdown(
@@ -57,13 +56,13 @@ def main():
             """,
             unsafe_allow_html=True
         )
-        bt1 = st.button("Convert",key="custom-button")
+        bt1 = st.button("生成",key="custom-button")
     if bt1 and text_to_speech:
         print('text_to_speech', text_to_speech)
-        out = convert(text_to_speech, "{}_{}".format(style, degree),profession_list)
+        out = convert(text_to_speech)
     else:
-        st.warning('Please make sure your text is not empty!')
-    st.text_area('📖 Output after conversion:', out)
+        st.warning('确保你的内容不为空!')
+    st.text_area('📖 输出：:', out)
 
 
 if __name__ == "__main__":
